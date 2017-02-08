@@ -9,6 +9,7 @@ var api_key = "dc6zaTOxFJmzC";
 $(document).ready(function () {
     getTrendingGif();
     getRandomGif();
+    getGif('cats');
 });
 
 function getTrendingGif() {
@@ -30,6 +31,18 @@ function getRandomGif() {
         url: url,
         success: function (response) {
             $('#random-gif-container').attr('src', response.data.image_original_url)
+        }
+    })
+}
+
+function getGif(input) {
+    var endpoint = "/v1/gifs/search";
+    var url = host + endpoint + "?api_key=" + api_key + "&rating=g&q=" + input;
+    $.ajax({
+        url: url,
+        success: function (response) {
+            var random = Math.floor(Math.random() * 26);
+            $('#trending-gif-container').attr('src', response.data[random].images.downsized_large.url)
         }
     })
 }
