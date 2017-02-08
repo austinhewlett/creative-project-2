@@ -10,6 +10,25 @@ $(document).ready(function () {
     getTrendingGif();
     getRandomGif();
     getGif('cats');
+    $("#userInput").keyup(function(event){
+        //if they hit enter
+        if(event.keyCode == 13){
+            getGif($("#userInput").val());
+        }
+    });
+
+    // get the height
+    var refreshDocHeight = function(){
+        var h = $(document).height();
+        $('#container').height(h);
+
+    };
+
+    window.setInterval(refreshDocHeight, 200);
+
+    // update the height every 200ms
+    window.setInterval(refreshDocHeight, 200);
+
 });
 
 function getTrendingGif() {
@@ -44,15 +63,21 @@ function getRandomGif() {
     })
 }
 
+
+
 function getGif(input) {
     var endpoint = "/v1/gifs/search";
     var url = host + endpoint + "?api_key=" + api_key + "&rating=g&q=" + input;
     $.ajax({
         url: url,
         success: function (response) {
-            console.log(response);
-            var random = Math.floor(Math.random() * 26);
-            $('#trending-gif-container').attr('src', response.data[random].images.downsized_large.url)
+            var gifsList = "<ul>";
+            for (var i = 0; i < response.data.length; i++){
+              gifsList += "<li><img src=\"" + response.data[i].images.original.url + "\">";
+            }
+            gifsList += "</ul>";
+            $("#searchResults").html(gifsList);
+
         }
     })
 }
@@ -74,6 +99,7 @@ function getCats(input){
             carouselItems += carouselItem;
           }
           $('#catSlides').html(carouselItems);
+
       }
   })
 }
