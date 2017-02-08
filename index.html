@@ -24,7 +24,7 @@
                 <a data-toggle="tab" href="#search" class="nav-link">Search</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link disabled">Cats</a>
+                <a data-toggle="tab" href="#cats" class="nav-link" onclick="getCats()">Cats</a>
             </li>
         </ul>
     </nav>
@@ -32,15 +32,15 @@
         <div id="trending" class="tab-pane active">
             <h2>trending page</h2>
             <div class="centered">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="catscarouselExampleControls" class="carousel slide" data-ride="carousel">
                   <div id="slides" class="carousel-inner" role="listbox">
                     <!-- This is where the list of carousel gifs goes -->
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#catscarouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                   </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <a class="carousel-control-next" href="#catscarouselExampleControls" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                   </a>
@@ -56,6 +56,24 @@
         <div id="search" class="tab-pane fade">
             <h2>search page</h2>
             <img id="search-gif-container" src=""/>
+        </div>
+        <div id="cats" class="tab-pane fade">
+            <h2>search page</h2>
+            <div class="centered">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div id="catSlides" class="carousel-inner" role="listbox">
+                    <!-- This is where the list of carousel gifs goes -->
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+          </div>
         </div>
     </div>
     <footer></footer>

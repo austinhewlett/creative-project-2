@@ -6,6 +6,13 @@
   margin:auto;
 }
 
+
+#catSlides img{
+  max-width: :100%;
+  height:auto;
+  margin:auto;
+}
+
 h2{
   text-align: center;
   color:rgb(200,200,200)

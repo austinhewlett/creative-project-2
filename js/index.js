@@ -50,8 +50,30 @@ function getGif(input) {
     $.ajax({
         url: url,
         success: function (response) {
+            console.log(response);
             var random = Math.floor(Math.random() * 26);
             $('#trending-gif-container').attr('src', response.data[random].images.downsized_large.url)
         }
     })
+}
+
+function getCats(input){
+  var endpoint = "/v1/gifs/search";
+  var url = host + endpoint + "?api_key=" + api_key + "&rating=g&q=" + 'cats';
+  $.ajax({
+      url: url,
+      success: function (response) {
+          console.log(response);
+          var carouselItems = "";
+          for (var i = 0; i < response.data.length; i++){
+            var carouselItem = "";
+            if (i == 0) carouselItem =  "<div class=\"carousel-item active\"> <img class=\"d-block img-fluid\" src=\"";
+            else carouselItem = "<div class=\"carousel-item\"> <img src=\"";
+            carouselItem += response.data[i].images.original.url;
+            carouselItem += "\">  </div>";
+            carouselItems += carouselItem;
+          }
+          $('#catSlides').html(carouselItems);
+      }
+  })
 }
