@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div class="container">
+<div class="container coolBackground">
     <header>
-        <h1>Giphy Getter (Please replace this name with something better)</h1>
+        <h1>Giphibulator  </h1>
     </header>
     <nav>
         <ul class="nav nav-tabs">
@@ -31,11 +31,27 @@
     <div class="tab-content">
         <div id="trending" class="tab-pane active">
             <h2>trending page</h2>
-            <img id="trending-gif-container" src=""/>
+            <div class="centered">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div id="slides" class="carousel-inner" role="listbox">
+                    <!-- This is where the list of carousel gifs goes -->
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+          </div>
         </div>
         <div id="random" class="tab-pane fade">
             <h2>random page</h2>
-            <img id="random-gif-container" src=""/>
+            <div class="maxWidth">
+                <img id="random-gif-container" onclick="getRandomGif()" src=""/>
+            </div>
         </div>
         <div id="search" class="tab-pane fade">
             <h2>search page</h2>

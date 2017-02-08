@@ -18,8 +18,17 @@ function getTrendingGif() {
     $.ajax({
         url: url,
         success: function (response) {
-            var random = Math.floor(Math.random() * 26);
-            $('#trending-gif-container').attr('src', response.data[random].images.downsized_large.url)
+            console.log(response);
+            var carouselItems = "";
+            for (var i = 0; i < response.data.length; i++){
+              var carouselItem = "";
+              if (i == 0) carouselItem =  "<div class=\"carousel-item active\"> <img class=\"d-block img-fluid\" src=\"";
+              else carouselItem = "<div class=\"carousel-item\"> <img src=\"";
+              carouselItem += response.data[i].images.original.url;
+              carouselItem += "\">  </div>";
+              carouselItems += carouselItem;
+            }
+            $('#slides').html(carouselItems);
         }
     })
 }
