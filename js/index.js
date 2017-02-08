@@ -8,6 +8,7 @@ var api_key = "dc6zaTOxFJmzC";
 
 $(document).ready(function () {
     getTrendingGif();
+    getRandomGif();
 });
 
 function getTrendingGif() {
@@ -18,6 +19,17 @@ function getTrendingGif() {
         success: function (response) {
             var random = Math.floor(Math.random() * 26);
             $('#trending-gif-container').attr('src', response.data[random].images.downsized_large.url)
+        }
+    })
+}
+
+function getRandomGif() {
+    var endpoint = "/v1/gifs/random";
+    var url = host + endpoint + "?api_key=" + api_key + "&rating=g";
+    $.ajax({
+        url: url,
+        success: function (response) {
+            $('#random-gif-container').attr('src', response.data.image_original_url)
         }
     })
 }
