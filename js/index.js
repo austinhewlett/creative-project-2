@@ -108,7 +108,7 @@ function getCats() {
                 var carouselItem = "";
                 if (i == 0) carouselItem = "<div class=\"carousel-item active\"> <img class=\"d-block img-fluid\" src=\"";
                 else carouselItem = "<div class=\"carousel-item\"> <img src=\"";
-                carouselItem += response.data[i].images.original.url;
+                carouselItem += response.data[i].images.fixed_height.url;
                 carouselItem += "\">  </div>";
                 carouselItems += carouselItem;
             }
