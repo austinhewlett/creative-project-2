@@ -53,6 +53,11 @@ footer {
     height: 50px;
 }
 
+a, a:hover {
+    color: orange;
+    font-weight: bold;
+}
+
 ul {
     list-style-type: none;
 }
