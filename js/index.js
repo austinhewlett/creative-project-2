@@ -9,7 +9,8 @@ var api_key = "dc6zaTOxFJmzC";
 $(document).ready(function () {
     getTrendingGif();
     getRandomGif();
-    getGif('cats');
+    getGif('dogs');
+    getCats();
     $("#userInput").keyup(function(event){
         //if they hit enter
         if(event.keyCode == 13){
@@ -82,9 +83,9 @@ function getGif(input) {
     })
 }
 
-function getCats(input){
+function getCats(){
   var endpoint = "/v1/gifs/search";
-  var url = host + endpoint + "?api_key=" + api_key + "&rating=g&q=" + 'cats';
+  var url = host + endpoint + "?api_key=" + api_key + "&rating=g&q=cats";
   $.ajax({
       url: url,
       success: function (response) {
