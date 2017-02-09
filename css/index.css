@@ -79,3 +79,7 @@ html{
 h1{
   color:white;
 }
+
+.tab-pane {
+  padding-top: 50px;
+}
